@@ -115,14 +115,7 @@ export const DocPeekViewControls = ({
         nameKey: 'open',
         onClick: () => {
           // TODO(@Peng): for frame blocks, we should mimic "view in edgeless" button behavior
-          if (mode) {
-            // TODO(@eyhn): change this to use mode link
-            doc?.setPrimaryMode(mode);
-          }
-
-          blockId
-            ? jumpToPageBlock(workspace.id, docId, blockId)
-            : workbench.openDoc(docId);
+          workbench.openDoc({ docId, blockId, mode });
 
           peekView.close('none');
         },
